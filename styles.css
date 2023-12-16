@@ -1,0 +1,109 @@
+body{
+    background-color: beige;
+}
+
+h1{
+    font-size: 200%;
+    text-align: center;
+    text-decoration: underline;
+}
+
+h3{
+    font-size: 25px;
+    text-decoration: underline;
+}
+img{
+    width: 100%;
+    border-radius: 20px;
+    margin-bottom: 1%;
+}
+
+.unfollow{
+    position: absolute;
+    right: 75%;
+    background-color: rgb(241, 44, 44);
+}
+
+.column{
+    float: left;
+}
+
+.right{
+    width: 28%;
+    text-align: left; 
+}
+
+.left{
+    width: 70%;
+    text-align: center;
+}
+
+button{
+    border-radius: 8px;
+    font-size: 15px;
+    margin-right: 1%;
+}
+
+button:hover{
+    font-size: 18px;
+}
+
+.unfollow:hover{
+    background-color: grey;
+}
+
+a{
+    font-size: 19px;
+    text-decoration: none;
+}
+a:hover{
+    font-size: 25px;
+}
+#searchButton{
+    margin-bottom: 10px;
+}
+
+.artworkInfo{
+    text-align: center;
+    color: black;
+    background-color: beige;
+    padding-bottom: 1%;
+    padding-top: 1%;
+    border-radius: 8px;
+}
+
+.header{
+    background-color: beige;
+}
+
+#like-button, #review-button{
+    margin-left: 1%;
+}
+
+#link-to-art{
+    text-align: center;
+
+}
+#artistInfo{
+    text-align: center;
+}
+
+#necessaryInfo{
+    text-align: center;
+}
+
+#gallery{
+    text-align: center;
+}
+
+.art-links{
+    font-size: xx-large;
+}
+
+.header{
+    text-align: center;
+}
+
+#notifications{
+    margin-left: 2%;
+}

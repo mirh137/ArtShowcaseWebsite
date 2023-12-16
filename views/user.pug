@@ -1,0 +1,60 @@
+html    
+    head 
+        style   
+            include ../styles.css
+        title #{user.username}
+    body 
+        include ./header.pug
+        h1#userTitle #{user.username}
+            
+        div(class="column right")
+            // notification dropdown
+            h3 Notifications:
+                select#notifications
+                    each notif in user.notifications 
+                        option #{notif} 
+            
+            p
+                button(type="button" id="upgrade" onclick="upgradeToArtist("+JSON.stringify(user)+")") Upgrade to Artist
+            p
+                button(type="button" id="degrade" onclick="changeToPatron("+JSON.stringify(user)+")") Change back to Patron
+        
+            h3 Artists Followed: 
+            // list of artists followed
+            div#artistsFollowed
+                each artist in user.artistsFollowing 
+                    p 
+                        a(href=`/artists/${artist}`)  #{artist}
+                        button(class="unfollow" type="Button" onclick="unfollow("+JSON.stringify(user)+", "+JSON.stringify(artist)+")") Unfollow 
+        
+            h3 Search for Artworks 
+            // inputboxes to search for artworks
+            p
+                |Name: 
+                input(type="text" id="searchName")
+            p 
+                |Artist Name: 
+                input(type="text" id="searchArtist")
+            p   
+                |Category Keyword: 
+                input(type="text" id="searchCategory")
+            button(type="button" onclick="searchArtworks()" id="searchButton") Search
+            div#searchResults
+            // button to redirect the user to the add artwork page
+            button(type="button" onclick="addArtworkPage()") Add Artwork 
+            // To add a new workshop to the currently logged in user
+            p 
+                input(type="text" id="workshopName")
+                button(type="button" onclick="addWorkshop()") Add Workshop
+
+            // list of likes artworks
+        div(class="column left") 
+            h2 Liked Artworks 
+            div#likedArtworks
+                each liked in user.liked 
+                    image(src=`${liked.image}`)
+                    button(type="button" onclick="removeLike("+JSON.stringify(liked)+")") Unlike 
+                    br
+        
+    script 
+        include ../client.js

@@ -1,0 +1,31 @@
+html 
+    head 
+        style 
+            include ../styles.css
+        title Add Artwork 
+    body 
+        include ./header.pug
+        h1 Add Artwork 
+        div#necessaryInfo
+            // textboxes and button to allow the user to add a new artwork
+            p 
+                |Artwork Name: 
+                input(type="text" id="newName") 
+            p
+                |Year: 
+                input(type="text" id="newYear")
+            p
+                |Category: 
+                input(type="text" id="newCategory")
+            p
+                |Medium: 
+                input(type="text" id="newMedium") 
+            p    
+                |Description 
+                input(type="text" id="newDescription")
+            p    
+                |Image: 
+                input(type="text" id="newImage")  
+            button(type="button" onclick="addArtwork()") Submit 
+    script 
+        include ../client.js

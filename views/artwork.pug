@@ -1,0 +1,41 @@
+html 
+    head 
+        style 
+            include ../styles.css
+        title #{artwork.name}
+
+    body 
+        include ./header.pug
+        h1 #{artwork.name}
+        div(class="artworkInfo") 
+            // showing the information about the artwork and a link to the artist
+            a(href=`/artists/${artwork.artist}` id="artworkArtist")  Artist: #{artwork.artist}
+            h2  Year: #{artwork.year}
+            h4  Category: #{artwork.category}
+            h4  Medium: #{artwork.medium}
+            h4  Description: #{artwork.description}
+
+            p#likes Likes: #{artwork.likes}
+                button(type="button" onclick="likeArtwork("+JSON.stringify(artwork)+")" id="like-button") Like 
+        image(src=`${artwork.image}`)
+        
+        
+
+        div(class="artworkInfo")
+            // letting the user leave a review of the artwork
+            h3 Add a review: 
+            input(type="text" id="artworkReview")
+            button(type="button" onclick="sendReview("+JSON.stringify(artwork)+")" id="review-button") Add Review
+            // showing the reviews of the artwork
+            h3 Reviews: 
+            div#reviews 
+                each r in artwork.ratings 
+                    p #{r} 
+            
+            // button that get similiar artworks to the current one
+            button(type="button" onclick="getSimiliarResults("+JSON.stringify(artwork)+")") Find Similiar
+            div#similiarResults
+    script 
+        include ../client.js   
+        
+        

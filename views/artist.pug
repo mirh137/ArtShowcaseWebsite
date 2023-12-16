@@ -1,0 +1,23 @@
+html 
+    head 
+        style 
+            include ../styles.css
+        title #{artist.username}
+    body 
+        include ./header.pug
+        h1 #{artist.username}
+        // show all the artworks the artist has made
+        each artwork in artist.artworks 
+            p(id="link-to-art") 
+                a(href=`/artworks/${artwork.name}`) #{artwork.name}
+            image(src=`${artwork.image}`)
+        div(id="artistInfo")
+            // showing the workshops offered by the artist
+            h2 Workshops: 
+            each workshop in artist.workshops 
+                p #{workshop}
+                button(type="button" onclick="enroll()") Enroll Now 
+            p 
+                button(type="button" onclick="followArtist("+JSON.stringify(artist)+")") Follow 
+    script 
+        include ../client.js

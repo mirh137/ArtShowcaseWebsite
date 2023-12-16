@@ -1,0 +1,17 @@
+html 
+    head    
+        style 
+            include ../styles.css  
+        title Registration 
+    body 
+        include ./header.pug
+        div#necessaryInfo
+            h1 Register 
+            // username and password boxes to allow the user to register 
+            p Username: 
+                input#registerUsername(type="textbox")
+            p Password:     
+                input#registerPassword(type="password")
+            button(type="button" id="submitRegistration" onclick="registerUser()") Submit
+    script 
+        include ../client.js

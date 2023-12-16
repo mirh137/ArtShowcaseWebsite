@@ -1,0 +1,17 @@
+html 
+    head
+        style 
+            include ../styles.css    
+        title Login 
+    body 
+        include ./header.pug
+        div#necessaryInfo
+            h1 Login 
+            // username and password textboxes to allow the user to login
+            p Username: 
+                input#username(type="textbox")
+            p Password:     
+                input#password(type="password")
+            button(type="button" id="submitLogin", onclick="sendLoginInfo()") Submit
+    script 
+        include ../client.js

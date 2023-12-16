@@ -1,0 +1,15 @@
+html 
+    head 
+        style 
+            include ../styles.css  
+        title Gallery 
+    body 
+        include ./header.pug
+        // displays all the artworks currently in the database
+        div#gallery
+            h1 Welcome to the Gallery
+            each art in artworks
+                a(href=`/artworks/${art.name}` class="art-links")  #{art.name}
+                img(src=`${art.image}`)
+    script 
+        include ../client.js
